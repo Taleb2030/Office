@@ -1,8 +1,11 @@
 /**
  * Add your videos here:
- * - YouTube: paste only the video ID (after v=), or a full https embed URL
- * - MP4 / WebM / OGG: use a path relative to index.html, e.g. "media/0506.mp4"
- * Leave "" to show the placeholder for that section.
+ * - YouTube: video ID only, or a full embed URL (https://www.youtube.com/embed/...)
+ * - MP4 on disk (local only): "media/0506.mp4" — this path is NOT on GitHub if the file
+ *   is gitignored (GitHub blocks files over 100 MB). For GitHub Pages, use one of:
+ *   - Upload the lesson to YouTube (unlisted is fine) and put the video ID here, or
+ *   - Upload the MP4 as a GitHub Release asset, then paste the full .mp4 download URL here.
+ * Leave "" for a placeholder in that section.
  */
 window.OFFICE_VIDEOS = {
   word: "media/0506.mp4",
@@ -26,8 +29,8 @@ window.OFFICE_VIDEOS = {
     if (!raw || typeof raw !== "string") return null;
     const t = raw.trim();
     if (!t) return null;
-    if (/^https?:\/\//i.test(t)) return { type: "iframe", url: t };
     if (isVideoFile(t)) return { type: "video", src: t };
+    if (/^https?:\/\//i.test(t)) return { type: "iframe", url: t };
     return {
       type: "iframe",
       url: "https://www.youtube.com/embed/" + encodeURIComponent(t),
@@ -51,6 +54,13 @@ window.OFFICE_VIDEOS = {
         '<video controls playsinline preload="metadata" src="' +
         escapeAttr(media.src) +
         '">Video is not supported in this browser.</video></div>';
+      var vid = mount.querySelector("video");
+      if (vid) {
+        vid.addEventListener("error", function () {
+          mount.innerHTML =
+            '<div class="video-placeholder video-placeholder--error"><p><strong>Video did not load.</strong> On GitHub Pages the file <code>media/0506.mp4</code> is usually missing because large MP4s are not stored in the repo. Fix: upload your lesson to YouTube and set your <code>word</code> value to the video ID, or attach the MP4 to a <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository" rel="noopener noreferrer">GitHub Release</a> and paste the full <code>.mp4</code> download URL in <code>videos.js</code>.</p></div>';
+        });
+      }
       return;
     }
     mount.innerHTML =

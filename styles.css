@@ -329,6 +329,16 @@ body {
   border-radius: 5px;
 }
 
+.video-placeholder--error {
+  border-color: rgba(210, 71, 38, 0.35);
+  background: linear-gradient(160deg, #fdeeed 0%, #f5e8e6 100%);
+}
+
+.video-placeholder--error a {
+  color: var(--word);
+  font-weight: 600;
+}
+
 .video-frame {
   position: relative;
   padding-bottom: 56.25%;
