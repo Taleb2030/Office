@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn Microsoft Word, Excel, and PowerPoint — practical video courses." />
+  <title>Office Skills — Word, Excel & PowerPoint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#">Office<span>Skills</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#word">Word</a>
+        <a href="#excel">Excel</a>
+        <a href="#powerpoint">PowerPoint</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Video courses</p>
+        <h1>Learn Word, Excel &amp; PowerPoint</h1>
+        <p class="lead">
+          Short, practical lessons you can follow step by step. Add your video IDs or embed links in
+          <code class="inline-code">videos.js</code>, and playlist URLs on the buttons below.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#word">Start with Word</a>
+          <a class="btn btn-ghost" href="#excel">Jump to Excel</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="word" class="course course-word">
+      <div class="wrap">
+        <div class="course-grid">
+          <div class="course-intro">
+            <div class="course-badge" data-app="word">W</div>
+            <h2>Microsoft Word</h2>
+            <p>
+              Documents, styles, tables, and layouts — build professional-looking files with confidence.
+            </p>
+            <!-- Set href to your playlist or channel (YouTube, Vimeo, etc.) -->
+            <a class="btn btn-word" href="#" target="_blank" rel="noopener noreferrer">
+              Open Word playlist
+            </a>
+          </div>
+          <div class="course-media">
+            <div id="video-mount-word"></div>
+            <ul class="lesson-list">
+              <li><span class="num">01</span> Getting started &amp; interface</li>
+              <li><span class="num">02</span> Text, styles &amp; formatting</li>
+              <li><span class="num">03</span> Tables, images &amp; layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="excel" class="course course-excel">
+      <div class="wrap">
+        <div class="course-grid course-grid-reverse">
+          <div class="course-intro">
+            <div class="course-badge" data-app="excel">X</div>
+            <h2>Microsoft Excel</h2>
+            <p>
+              Spreadsheets, formulas, and charts — turn raw data into clear answers and visuals.
+            </p>
+            <a class="btn btn-excel" href="#" target="_blank" rel="noopener noreferrer">
+              Open Excel playlist
+            </a>
+          </div>
+          <div class="course-media">
+            <div id="video-mount-excel"></div>
+            <ul class="lesson-list">
+              <li><span class="num">01</span> Workbooks &amp; navigation</li>
+              <li><span class="num">02</span> Formulas &amp; functions</li>
+              <li><span class="num">03</span> Charts &amp; tables</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="powerpoint" class="course course-ppt">
+      <div class="wrap">
+        <div class="course-grid">
+          <div class="course-intro">
+            <div class="course-badge" data-app="ppt">P</div>
+            <h2>Microsoft PowerPoint</h2>
+            <p>
+              Slides, themes, and storytelling — design presentations that hold attention.
+            </p>
+            <a class="btn btn-ppt" href="#" target="_blank" rel="noopener noreferrer">
+              Open PowerPoint playlist
+            </a>
+          </div>
+          <div class="course-media">
+            <div id="video-mount-powerpoint"></div>
+            <ul class="lesson-list">
+              <li><span class="num">01</span> Slides &amp; themes</li>
+              <li><span class="num">02</span> Text, images &amp; shapes</li>
+              <li><span class="num">03</span> Animations &amp; presenting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">Office<span>Skills</span> — your course hub</p>
+      <p class="footer-note">
+        Edit <code>videos.js</code> for embedded players, <code>index.html</code> for buttons and lesson titles.
+      </p>
+    </div>
+  </footer>
+  <script src="videos.js" defer></script>
+</body>
+</html>

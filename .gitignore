@@ -1,0 +1,7 @@
+# Large course videos — GitHub limits files to 100 MB; add your MP4 locally or use Git LFS / external hosting
+media/*.mp4
+*.mp4
+
+Thumbs.db
+.DS_Store
+.vscode/

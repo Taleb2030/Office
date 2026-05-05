@@ -1,0 +1,427 @@
+/* Office Skills — simple landing layout */
+:root {
+  --bg: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --text: #141821;
+  --muted: #5c6578;
+  --line: rgba(20, 24, 33, 0.08);
+  --shadow: 0 24px 48px rgba(20, 35, 80, 0.12);
+  --shadow-soft: 0 12px 32px rgba(20, 35, 80, 0.08);
+  --word: #2b579a;
+  --excel: #217346;
+  --ppt: #d24726;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --font: "Manrope", system-ui, sans-serif;
+  --font-display: "Instrument Sans", var(--font);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(43, 87, 154, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(33, 115, 70, 0.1), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 100%, rgba(210, 71, 38, 0.08), transparent);
+  pointer-events: none;
+}
+
+.wrap {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(244, 246, 251, 0.85);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--word);
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+/* Hero */
+.hero {
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero-inner {
+  max-width: 40rem;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--word);
+  margin: 0 0 0.75rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.lead {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.inline-code {
+  font-size: 0.92em;
+  background: rgba(20, 24, 33, 0.07);
+  padding: 0.12rem 0.45rem;
+  border-radius: 6px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow);
+}
+
+.btn-ghost {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(20, 24, 33, 0.18);
+}
+
+.btn-word {
+  background: var(--word);
+  color: #fff;
+}
+
+.btn-word:hover {
+  filter: brightness(1.06);
+}
+
+.btn-excel {
+  background: var(--excel);
+  color: #fff;
+}
+
+.btn-excel:hover {
+  filter: brightness(1.06);
+}
+
+.btn-ppt {
+  background: var(--ppt);
+  color: #fff;
+}
+
+.btn-ppt:hover {
+  filter: brightness(1.06);
+}
+
+/* Course sections */
+.course {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+
+.course:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.course-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .course-grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .course-grid-reverse .course-intro {
+    order: 2;
+  }
+
+  .course-grid-reverse .course-media {
+    order: 1;
+  }
+}
+
+.course-intro {
+  padding: 1.5rem 0;
+}
+
+.course-badge {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.course-badge[data-app="word"] {
+  background: linear-gradient(145deg, #3d6bb5, var(--word));
+}
+
+.course-badge[data-app="excel"] {
+  background: linear-gradient(145deg, #2a9d62, var(--excel));
+}
+
+.course-badge[data-app="ppt"] {
+  background: linear-gradient(145deg, #e85a3c, var(--ppt));
+}
+
+.course-intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.course-intro > p {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+.course-media {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
+}
+
+.video-placeholder {
+  border-radius: var(--radius);
+  min-height: 180px;
+  background: linear-gradient(160deg, #eef1f8 0%, #e4e9f4 100%);
+  border: 1px dashed rgba(20, 24, 33, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.video-placeholder p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 22rem;
+}
+
+.video-placeholder code {
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.1rem 0.35rem;
+  border-radius: 5px;
+}
+
+.video-frame {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+  background: #000;
+}
+
+.video-frame iframe,
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-frame--html5 video {
+  object-fit: contain;
+  background: #000;
+}
+
+.lesson-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lesson-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+
+.lesson-list li:last-child {
+  border-bottom: none;
+}
+
+.lesson-list .num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  min-width: 1.75rem;
+}
+
+.course-word .lesson-list .num {
+  color: var(--word);
+}
+
+.course-excel .lesson-list .num {
+  color: var(--excel);
+}
+
+.course-ppt .lesson-list .num {
+  color: var(--ppt);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 2rem;
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-brand {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+.footer-brand span {
+  color: var(--word);
+}
+
+.footer-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-note code {
+  font-size: 0.8em;
+  background: rgba(20, 24, 33, 0.06);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+}
